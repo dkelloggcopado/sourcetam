@@ -28,4 +28,27 @@ private class TemperatureConverterTest {
         fahrenheit = TemperatureConverter.celsiusToFahrenheit(null);
         System.assertEquals(null, fahrenheit, 'Null input should return null');
     }
+    
+    @IsTest static void testKelvinToFahrenheit() {
+        // Test valid conversions
+        Decimal fahrenheit = TemperatureConverter.kelvinToFahrenheit(273.15);
+        System.assertEquals(32, fahrenheit, 'Incorrect freezing point conversion');
+        
+        fahrenheit = TemperatureConverter.kelvinToFahrenheit(373.15);
+        System.assertEquals(212, fahrenheit, 'Incorrect boiling point conversion');
+        
+        // Test invalid inputs
+        System.assertEquals(null, TemperatureConverter.kelvinToFahrenheit(-1), 'Negative Kelvin should return null');
+        System.assertEquals(null, TemperatureConverter.kelvinToFahrenheit(null), 'Null input should return null');
+    }
+    
+    @IsTest static void testFahrenheitToKelvin() {
+        Decimal kelvin = TemperatureConverter.fahrenheitToKelvin(32);
+        System.assertEquals(273.15, kelvin, 'Incorrect freezing point conversion');
+        
+        kelvin = TemperatureConverter.fahrenheitToKelvin(212);
+        System.assertEquals(373.15, kelvin, 'Incorrect boiling point conversion');
+        
+        System.assertEquals(null, TemperatureConverter.fahrenheitToKelvin(null), 'Null input should return null');
+    }
 }
