@@ -26,4 +26,28 @@ public class TemperatureConverter {
         if (fahrenheit == null) return null;
         return ((fahrenheit - 32) * 5/9) + 273.15;
     }
+        // Newton conversions
+    public static Decimal celsiusToNewton(Decimal celsius) {
+        if (celsius == null) return null;
+        return celsius * 33/100;
+    }
+    
+    public static Decimal newtonToCelsius(Decimal newton) {
+        if (newton == null) return null;
+        return newton * 100/33;
+    }
+    
+    public static Decimal newtonToFahrenheit(Decimal newton) {
+        if (newton == null) return null;
+        // First convert Newton to Celsius, then Celsius to Fahrenheit
+        Decimal celsius = newtonToCelsius(newton);
+        return celsiusToFahrenheit(celsius);
+    }
+    
+    public static Decimal fahrenheitToNewton(Decimal fahrenheit) {
+        if (fahrenheit == null) return null;
+        // First convert Fahrenheit to Celsius, then Celsius to Newton
+        Decimal celsius = fahrenheitToCelsius(fahrenheit);
+        return celsiusToNewton(celsius);
+    }
 }
