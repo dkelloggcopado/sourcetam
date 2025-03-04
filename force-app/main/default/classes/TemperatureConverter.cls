@@ -12,6 +12,8 @@ public class TemperatureConverter {
         if (celsius == null) return null;
         return (celsius * 9/5) + 32;
     }
+        //this is a test merge
+        //I need an example to show
         // Method to convert Kelvin to Fahrenheit
     public static Decimal kelvinToFahrenheit(Decimal kelvin) {
         // Formula: (K − 273.15) × 9/5 + 32 = °F
